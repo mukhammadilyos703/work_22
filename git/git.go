@@ -14,3 +14,13 @@ func GetUserName() string {
 	name := string(command)
 	return name
 }
+
+func GetUserEmail() string {
+	cmd := exec.Command("git", "config", "user.email")
+	command, err := cmd.Output()
+	if err != nil {
+		log.Fatal(err)
+	}
+	name := string(command)
+	return name
+}
